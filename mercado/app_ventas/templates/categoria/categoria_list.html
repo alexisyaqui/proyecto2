@@ -1,0 +1,52 @@
+{% extends "../lista.html" %}
+
+{% block contenido %}
+
+<div class="card card-default">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-search"></i>
+            {{ title}}
+        </h3>
+    </div>
+    <table class="table">
+        {% block columnas %}
+        <thead>
+            <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">opciones</th>
+            </tr>
+        </thead>
+        {% endblock %}
+
+
+        <tbody>
+
+            {% block rows %}
+            {% for c in object_list %}
+            <tr>
+                <td>{{c.id }}</td>
+                <td>{{c.nombre_categoria}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger btn-xs">
+                        <li class="fas fa-trash-alt"></li>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+            {% endblock %}
+        </tbody>
+    </table>
+    <!-- /.card-body -->
+
+    <div class="card-body">
+        <button type="button" class="btn btn-primary btn-flat">
+            <li class="fas fa-plus"></li>NUEVO REGISTRO
+        </button>
+
+    </div>
+</div>
+
+{% endblock %}
